@@ -36,36 +36,13 @@ public class TestWord {
 
         String[] words = phrase.split("\\s+|\\n|,");
         for (int i = 0; i < words.length; i++) {
-            if (words[i].equals("lumu")) {
-
-                totalLumu++;
-
-
-            } else if (words[i].equals("illuminates")) {
-
-                totalIlluminates++;
-
-
-            } else if (words[i].equals("attacks")) {
-
-                totalAttacks++;
-
-
-            } else if (words[i].equals("adversaries")) {
-
-                totalAdversaries++;
-
-
-            } else if (words[i].equals("and")) {
-
-                totalAnd++;
-
-
-            } else if (words[i].equals("all")) {
-
-                totalAll++;
-
-
+            switch (words[i]) {
+                case "lumu" -> totalLumu++;
+                case "illuminates" -> totalIlluminates++;
+                case "attacks" -> totalAttacks++;
+                case "adversaries" -> totalAdversaries++;
+                case "and" -> totalAnd++;
+                case "all" -> totalAll++;
             }
 
 
