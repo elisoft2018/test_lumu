@@ -16,7 +16,6 @@ public class TestWord {
     String phraseEmpty = "";
 
     public void setUp() throws Exception {
-        DesiredCapabilities caps = new DesiredCapabilities();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to("https://wordcounter.net/");
@@ -92,7 +91,7 @@ public class TestWord {
         int totalCharacters = phrase.length();
         StringTokenizer st = new StringTokenizer(phrase);
         int totalWords = st.countTokens();
-        String resultExpect = String.valueOf(totalWords) + " words " + String.valueOf(totalCharacters) + " characters";
+        String resultExpect = totalWords + " words " +totalCharacters + " characters";
         System.out.println("Resultado Calculado por el test: " + resultExpect);
         String resultText = driver.findElement(By.cssSelector("#editor_container > div:nth-child(7) > div > div:nth-child(1) > h4 > span")).getText();
         System.out.println("Resultado Calculado por el Sitio: " + resultText);
