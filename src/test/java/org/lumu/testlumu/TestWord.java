@@ -35,8 +35,8 @@ public class TestWord {
         int totalAll = 0;
 
         String[] words = phrase.split("\\s+|\\n|,");
-        for (int i = 0; i < words.length; i++) {
-            switch (words[i]) {
+        for (String word : words) {
+            switch (word) {
                 case "lumu" -> totalLumu++;
                 case "illuminates" -> totalIlluminates++;
                 case "attacks" -> totalAttacks++;
