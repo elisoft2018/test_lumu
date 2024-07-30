@@ -13,6 +13,7 @@ public class TestWord {
 
     private WebDriver driver;
     String phrase = "lumu lumu lumu lumu lumu illuminates illuminates attacks and adversaries lumu illuminates all attacks and adversaries";
+    String phraseEmpty = "";
 
     public void setUp() throws Exception {
         DesiredCapabilities caps = new DesiredCapabilities();
@@ -97,8 +98,26 @@ public class TestWord {
         System.out.println("Resultado Calculado por el Sitio: " + resultText);
         Assert.assertEquals(resultExpect, resultText);
         this.tearDown();
+
     }
 
+    @Test
+    public void testFailed() throws Exception {
+        this.setUp();
+        driver.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/form/div[1]/div/span/textarea")).click();
+        driver.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/form/div[1]/div/span/textarea")).sendKeys(phrase);
+        Thread.sleep(5000);
+        String text = driver.findElement(By.cssSelector("#editor_container > div:nth-child(7) > div > div:nth-child(1) > h4 > span")).getText();
+        Assert.assertEquals(text, phraseEmpty);
+
+        this.tearDown();
+
+    }
+
+//    public void report() throws Exception {
+//        ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls -lumu");
+//        pb.command()
+//    }
 
     public void tearDown() throws Exception {
         driver.quit();
